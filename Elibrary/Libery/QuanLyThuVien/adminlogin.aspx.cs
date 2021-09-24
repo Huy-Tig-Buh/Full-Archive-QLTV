@@ -31,13 +31,13 @@ namespace QuanLyThuVien
                     con.Open();
 
                 }
-                SqlCommand cmd = new SqlCommand("select * from admin_table where username='" + TextBox1.Text.Trim() + "' AND password='" + TextBox2.Text.Trim() + "'", con);
+                SqlCommand cmd = new SqlCommand("select * from admin_login where username='" + TextBox1.Text.Trim() + "' AND password='" + TextBox2.Text.Trim() + "'", con);
                 SqlDataReader dr = cmd.ExecuteReader();
                 if (dr.HasRows)
                 {
                     while (dr.Read())
                     {
-                        Response.Write("<script>alert('Successful login');</script>");
+                        //Response.Write("<script>alert('Successful login');</script>");
                         Session["username"] = dr.GetValue(0).ToString();
                         Session["fullname"] = dr.GetValue(2).ToString();
                         Session["role"] = "admin";
