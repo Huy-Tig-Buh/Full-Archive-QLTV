@@ -11,9 +11,9 @@ namespace QuanLyThuVien
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-           /*try
+           try
             {
-                if (Session["role"].Equals(""))
+                if (Session["role"]==null)
                 {
                     Btn_UserLogin.Visible = true; // user login link button
                     Btn_SignUp.Visible = true; // sign up link button
@@ -66,7 +66,7 @@ namespace QuanLyThuVien
             catch (Exception )
             {
 
-            }*/
+            }
             
         }
 
@@ -99,8 +99,19 @@ namespace QuanLyThuVien
         {
             Response.Redirect("adminmembermanegerment.aspx");
         }
-        //logout button
+ 
         protected void LinkButton3_Click(object sender, EventArgs e)
+        {
+          
+        }
+
+        // view profile
+        protected void LinkButton7_Click(object sender, EventArgs e)
+        {
+
+        }
+        //logout button
+        protected void Btn_Logout_Click(object sender, EventArgs e)
         {
             Session["username"] = "";
             Session["fullname"] = "";
@@ -122,10 +133,9 @@ namespace QuanLyThuVien
             Btn_MemberManagement.Visible = false; // member management link button
         }
 
-        // view profile
-        protected void LinkButton7_Click(object sender, EventArgs e)
+        protected void Btn_UserLogin_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("userlogin.aspx");
         }
     }
 }
